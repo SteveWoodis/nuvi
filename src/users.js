@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-var newRecords = [];
 class Users extends Component{
   constructor(){
     super();
@@ -7,13 +6,8 @@ class Users extends Component{
   }
   componentWillMount(){
     fetch('https://nuvi-challenge.herokuapp.com/activities')
-      .then(function (response) {
-        return response.json()
-      }).then(function (json) {
-      newRecords = json;
-      this.setState({items: json});
-      return newRecords;
-    })
+      .then(response => response.json())
+      .then(json => this.setState({ items: json.data }));
   }
 
 
@@ -21,7 +15,7 @@ class Users extends Component{
     let items = this.state.items;
     return(
       <div>
-        {items.map(item => <h5 key={item.title} style={{marginLeft: '15px'}}>{item.title}</h5>)}
+        {items.map(item => (<h5 key={item.id} style={{marginLeft: '15px'}}>{item.actor_username}</h5>))}
       </div>
     )
   }
