@@ -1,13 +1,23 @@
 import React, {Component} from 'react';
+let newRecords = [];
 class Users extends Component{
   constructor(){
     super();
-    this.state = {items: []}
+    this.state= {items: []}
   }
+  getArray(){
+    return fetch('https://nuvi-challenge.herokuapp.com/activities')
+      .then(function (response) {
+        return response.json()
+      }).then(function (json) {
+        newRecords = json;
+        //newRecords.forEach((item) => this.setState({items: item}));
+        console.log("First Array ",newRecords);
+       return newRecords;
+      })
+}
   componentWillMount(){
-    fetch('https://nuvi-challenge.herokuapp.com/activities')
-      .then(response => response.json())
-      .then(json => this.setState({ items: json.data }));
+    this.getArray();
   }
 
 
