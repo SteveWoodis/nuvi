@@ -25,24 +25,22 @@ class Users extends Component{
       }
 
 
-
   render(){
     let items = this.state.items;
     //let i = 0;
     return(
-      <div>
+      <div className="lineBreak">
         {items.map(item => (
-        <ul style={{textDecoration: 'none'}}>
-
-          <li style={{textDecoration: 'none'}}><h6 key={item.id} style={{marginLeft: '15px'}}>{item.provider}</h6></li>
-          <li style={{textDecoration: 'none'}}><h6>URL: <a href={item.activity_url}>{item.activity_url}</a></h6></li>
-          <li style={{textDecoration: 'none'}}><h6>Actor's Username: {item.actor_username}</h6></li>
-          <li style={{textDecoration: 'none'}}><h6>ID: {item.id}</h6></li>
-          <li style={{textDecoration: 'none'}}><h5>Name: {item.actor_name}</h5></li>
-          
+        <ul style={{listStyleType: 'none'}}>
+          <li style={{listStyleType: 'none',  padding: '0px', margin: '0px', textAlign:'Left'}}><h5 key={item.id}>Social Media Provider: {item.provider}</h5></li>
+          <li style={{listStyleType: 'none',  padding: '0px', margin: '0px', textAlign:'Left'}}><h5>Actor's Username: {item.actor_username}</h5></li>
+          <li style={{listStyleType: 'none',  padding: '0px', margin: '0px', textAlign:'Left'}}><h5>Actor's Name: {item.actor_name}</h5></li>
+          <li style={{listStyleType: 'none',  padding: '0px', margin: '0px', textAlign:'Left'}}><h5>URL: <a href={item.activity_url}>{item.activity_url}</a></h5></li>
+          <li style={{listStyleType: 'none',  padding: '0px', margin: '0px', textAlign:'Left'}}><h5><strong>Last Active Message: </strong>{item.activity_message}</h5></li>
+          <li style={{listStyleType: 'none',  padding: '0px', margin: '0px', textAlign:'Left'}}><h5>Activity Date: {item.activity_date}</h5></li>
+          <li style={{listStyleType: 'none',  padding: '0px', margin: '0px', textAlign:'Left'}}><h5>Actor Avatar: <img src={item.actor_avator} alt="" style={{height:'50px',width:'50px'}}></img></h5></li>
         </ul>
         ))}
-
       </div>
     )
   }
