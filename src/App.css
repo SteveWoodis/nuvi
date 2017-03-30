@@ -26,3 +26,17 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+table {
+  width: 90%;
+  margin: auto;
+  border-style: solid;
+  border-width: thin;
+}
+td {
+  border-style: solid;
+  border-width: thin;
+}
+th {
+  border-style: solid;
+  border-width: thin;
+}
