@@ -40,3 +40,13 @@ th {
   border-style: solid;
   border-width: thin;
 }
+li {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+header {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

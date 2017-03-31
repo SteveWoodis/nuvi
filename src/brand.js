@@ -52,10 +52,20 @@ class Brand extends Component {
       })
       return totalShares;
     }
-    function getNewProvider(users,name){
-      return {name: name, totalUsers: getTotalUsers(users,name), totalLikes: getTotalLikes(users, name), totalShares: getTotalShares(users,name), lastActiveDate: '03-29-2017'}
+    function getLastActiveDate(users,name){
+      let activeDate = '';
+      users.forEach(function (user) {
+        if(user.provider === name){
+          if(user.activity_date > activeDate){
+            activeDate = user.activity_date;
+          }
+        }
+      })
+      return activeDate;
     }
-    console.log("The array in getProviders", this.state.users);
+    function getNewProvider(users,name){
+      return {name: name, totalUsers: getTotalUsers(users,name), totalLikes: getTotalLikes(users, name), totalShares: getTotalShares(users,name), lastActiveDate: getLastActiveDate(users,name)}
+    }
     return [
       getNewProvider(this.state.users, 'facebook'),
       getNewProvider(this.state.users, 'twitter'),
@@ -70,13 +80,12 @@ class Brand extends Component {
   }
 render(){
   const providers = this.getProviders();
-  console.log("The Array in render", this.state.users);
   return(
     <header>
       <table>
         <thead>
           <tr>
-            <th></th>
+            <th>Media Channel</th>
             <th><strong>Users</strong></th>
             <th><strong>Likes</strong></th>
             <th><strong>Shares</strong></th>
