@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-
 class Brand extends Component {
   constructor() {
     super();
@@ -7,9 +6,6 @@ class Brand extends Component {
 
     this.getArray = this.getArray.bind(this);
     this.getProviders = this.getProviders.bind(this);
-    // this.getTotalUsers = this.getTotalUsers.bind(this);
-    // this.getTotalLikes = this.getTotalLikes.bind(this);
-    // this.getTotalShares = this.getTotalShares.bind(this);
   }
 
   getArray() {
@@ -17,28 +13,49 @@ class Brand extends Component {
     fetch('https://nuvi-challenge.herokuapp.com/activities')
       .then(function (response) {
         return response.json()
-      }).then(function (items) {
-      self.setState({items})
+      }).then(function (users) {
+      self.setState({users});
     }).catch(function (err) {
       console.log("This is an error", err)
     })
-    return this.state.items;
+    return this.state.users;
   }
 
 
   getProviders(){
-    function getTotalUsers(users, name){
-      console.log("Users")
+    function getTotalUsers(users,name){
+      let totalUser = 0;
+      users.forEach(function(user){
+        if(user.provider === name){
+          totalUser++;
+        }
+      console.log("The provider that incremented is: ", name);
+        
+      })
+      return totalUser;
     }
-    function getTotalLikes(users){
-      console.log("Likes")
+    function getTotalLikes(users, name){
+      let totalLikes = 0;
+      users.forEach(function (user) {
+        if(user.provider === name){
+          totalLikes += user.activity_likes;
+        }
+      })
+      return totalLikes;
     }
-    function getTotalShares(users){
-      console.log("Shares")
+    function getTotalShares(users, name){
+      let totalShares = 0;
+      users.forEach(function (user) {
+        if(user.provider === name){
+          totalShares += user.activity_shares;
+        }
+      })
+      return totalShares;
     }
     function getNewProvider(users,name){
-      return {name: name, totalUsers: getTotalUsers(users, name), totalLikes: getTotalLikes(users), totalShares: getTotalShares(users), lastActiveDate: '03-29-2017'}
+      return {name: name, totalUsers: getTotalUsers(users,name), totalLikes: getTotalLikes(users, name), totalShares: getTotalShares(users,name), lastActiveDate: '03-29-2017'}
     }
+    console.log("The array in getProviders", this.state.users);
     return [
       getNewProvider(this.state.users, 'facebook'),
       getNewProvider(this.state.users, 'twitter'),
@@ -53,7 +70,7 @@ class Brand extends Component {
   }
 render(){
   const providers = this.getProviders();
-
+  console.log("The Array in render", this.state.users);
   return(
     <header>
       <table>

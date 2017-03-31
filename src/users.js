@@ -19,7 +19,7 @@ class Users extends Component{
 
   componentWillMount(){
     this.getArray();
-      }
+  }
   
 
   render(){
