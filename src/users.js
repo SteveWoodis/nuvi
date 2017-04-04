@@ -4,6 +4,7 @@ class Users extends Component{
     super();
     this.state= {items: []}
     this.getArray = this.getArray.bind(this);
+    this.cleanArray = this.cleanArray.bind(this);
   }
   getArray(){
     let self = this;
@@ -21,20 +22,34 @@ class Users extends Component{
     this.getArray();
   }
   
+  cleanArray(){
+    let clutteredRecords = this.state.items;
+    let activity = ' https://placehold.it/500x500.jpeg/ffffff/000';
+    console.log("records", clutteredRecords);
+    clutteredRecords.forEach(function(clutteredRecord){
+      if(clutteredRecord.activity_message !== activity){
+        console.log();
+      }else{
+        clutteredRecord.activity_message = 'No current activity';
+      }
 
+    })
+    return clutteredRecords;
+  }
   render(){
+    this.cleanArray();
     let items = this.state.items;
     return(
       <div className="recordBreak">
         {items.map(item => (
         <ul  key={item.id} style={{listStyleType: 'none'}}>
-          <li><h5>Social Media Provider: {item.provider}</h5></li>
-          <li><h5>Actor's Username: {item.actor_username}</h5></li>
-          <li><h5>Actor's Name: {item.actor_name}</h5></li>
-          <li><h5>URL: <a href={item.activity_url}>{item.activity_url}</a></h5></li>
-          <li><h5><strong>Last Active Message: </strong>{item.activity_message}</h5></li>
-          <li><h5>Activity Date: {item.activity_date}</h5></li>
-          <li><h5>Actor Avatar: <img src={item.actor_avator} alt="" style={{height:'50px',width:'50px'}}/></h5></li>
+          <li>Actor Avatar: <img src={item.actor_avator} alt="" style={{height:'50px',width:'50px'}}/></li>
+          <li>Social Media Provider: {item.provider}</li>
+          <li>Actor's Username: {item.actor_username}</li>
+          <li>Actor's Name: {item.actor_name}</li>
+          <li>URL: <a href={item.activity_url}>{item.activity_url}</a></li>
+          <li><strong>Last Active Message: </strong>{item.activity_message}</li>
+          <li>Activity Date: {item.activity_date}</li>
         </ul>
         ))}
       </div>
