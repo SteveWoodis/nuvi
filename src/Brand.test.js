@@ -10,7 +10,7 @@ it('should return correct number of users on valid brand', () => {
   }
 });
 //getTotalLikes
-it('should return total number of likes in each social media category', () => {
+it('should return total number of likes', () => {
   const brand = new Brand();
   const users = [{provider: 'silly'}, {provider: 'silly'}, {provider: 'hickup'}];
   const totalLikes = brand.getTotalLikes(users, 'silly');
@@ -19,7 +19,18 @@ it('should return total number of likes in each social media category', () => {
   }
 });
 //getTotalShares
-
+it('should return total number of shares', () => {
+  const brand = new Brand();
+  const users = [{provider: 'iffy'}, {provider: 'iffy'}, {provider: 'backscratcher'}];
+  const totalShares = brand.getTotalShares(users, 'iffy');
+  if(totalShares !== 2){
+    throw Error('incorrect number of shares');
+  }
+});
 //getLastActiveDate
 
-
+//getItemMap
+it('should return table with values at top of page', () => {
+  const brand = new Brand();
+  const users = [{}]
+})

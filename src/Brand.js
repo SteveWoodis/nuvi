@@ -7,6 +7,7 @@ class Brand extends Component {
 
     this.getArray = this.getArray.bind(this);
     this.getProviders = this.getProviders.bind(this);
+    this.getItemMap = this.getItemMap.bind(this);
   }
 
   getArray() {
@@ -32,12 +33,12 @@ class Brand extends Component {
 
   getTotalLikes(users, name) {
     let totalLikes = 0;
-    users.forEach(function (user) {
-      if (user.provider === name) {
-        totalLikes += user.activity_likes;
+    const filteredLikes = users.reduce(function (totalLikes,user) {
+      if(user.provider === name) {
+        return totalLikes += user.activity_likes;
       }
-    });
-    return totalLikes;
+    },0);
+    return filteredLikes;
   }
 
   getTotalShares(users, name) {
@@ -84,9 +85,21 @@ class Brand extends Component {
   componentWillMount() {
     this.getArray();
   }
-
-  render() {
+  getItemMap(){
     const providers = this.getProviders();
+    const mapArray = providers.map((provider, i) => (
+      <tr key={i}>
+        <td>{provider.name}</td>
+        <td>{provider.totalUsers}</td>
+        <td>{provider.totalLikes}</td>
+        <td>{provider.totalShares}</td>
+        <td>{provider.lastActiveDate}</td>
+      </tr>
+    ));
+    return mapArray;
+  }
+  render() {
+
     return (
       <header>
         <table>
@@ -100,15 +113,7 @@ class Brand extends Component {
           </tr>
           </thead>
           <tbody>
-          {providers.map((provider, i) => (
-            <tr key={i}>
-              <td>{provider.name}</td>
-              <td>{provider.totalUsers}</td>
-              <td>{provider.totalLikes}</td>
-              <td>{provider.totalShares}</td>
-              <td>{provider.lastActiveDate}</td>
-            </tr>
-          ))}
+          {this.getItemMap()}
           </tbody>
         </table>
       </header>

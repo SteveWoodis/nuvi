@@ -6,6 +6,7 @@ class Users extends Component {
     this.state = {items: []};
     this.getArray = this.getArray.bind(this);
     this.cleanArray = this.cleanArray.bind(this);
+    this.getItemMap = this.getItemMap.bind(this);
   }
 
   getArray() {
@@ -40,23 +41,27 @@ class Users extends Component {
     });
     return clutteredRecords;
   }
-
+  getItemMap(){
+    let items = this.state.items;
+    const mapArray = items.map(item => (
+      <ul key={item.id} style={{listStyleType: 'none'}}>
+        <li>Actor Avatar: <img src={item.actor_avator} alt="" style={{height: '50px', width: '50px'}}/></li>
+        <li>Social Media Provider: {item.provider}</li>
+        <li>Actor's Username: {item.actor_username}</li>
+        <li>Actor's Name: {item.actor_name}</li>
+        <li>URL: <a href={item.activity_url}>{item.activity_url}</a></li>
+        <li><strong>Last Active Message: </strong>{item.activity_message}</li>
+        <li>Activity Date: {item.activity_date}</li>
+      </ul>
+    ))
+    return mapArray;
+  }
   render() {
     this.cleanArray();
-    let items = this.state.items;
+
     return (
       <div className="recordBreak">
-        {items.map(item => (
-          <ul key={item.id} style={{listStyleType: 'none'}}>
-            <li>Actor Avatar: <img src={item.actor_avator} alt="" style={{height: '50px', width: '50px'}}/></li>
-            <li>Social Media Provider: {item.provider}</li>
-            <li>Actor's Username: {item.actor_username}</li>
-            <li>Actor's Name: {item.actor_name}</li>
-            <li>URL: <a href={item.activity_url}>{item.activity_url}</a></li>
-            <li><strong>Last Active Message: </strong>{item.activity_message}</li>
-            <li>Activity Date: {item.activity_date}</li>
-          </ul>
-        ))}
+        {this.getItemMap()}
       </div>
     )
   }
