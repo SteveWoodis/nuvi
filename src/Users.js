@@ -41,7 +41,8 @@ class Users extends Component {
     });
     return clutteredRecords;
   }
-  getItemMap(){
+
+  getItemMap() {
     let items = this.state.items;
     const mapArray = items.map(item => (
       <ul key={item.id} style={{listStyleType: 'none'}}>
@@ -56,6 +57,7 @@ class Users extends Component {
     ))
     return mapArray;
   }
+
   render() {
     this.cleanArray();
 

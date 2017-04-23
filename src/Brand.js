@@ -33,22 +33,18 @@ class Brand extends Component {
 
   getTotalLikes(users, name) {
     let totalLikes = 0;
-    const filteredLikes = users.reduce(function (totalLikes,user) {
-      if(user.provider === name) {
-        return totalLikes += user.activity_likes;
-      }
-    },0);
+    const filteredLikes = users.reduce(function (totalLikes, user) {
+      return totalLikes += user.activity_likes;
+    }, 0);
     return filteredLikes;
   }
 
   getTotalShares(users, name) {
     let totalShares = 0;
-    users.forEach(function (user) {
-      if (user.provider === name) {
-        totalShares += user.activity_shares;
-      }
-    });
-    return totalShares;
+    const filteredShares = users.reduce(function (totalShares, user) {
+      return totalShares += user.activity_shares;
+    }, 0);
+    return filteredShares;
   }
 
   getLastActiveDate(users, name) {
@@ -85,21 +81,34 @@ class Brand extends Component {
   componentWillMount() {
     this.getArray();
   }
-  getItemMap(){
+
+  getItemMap() {
     const providers = this.getProviders();
     const mapArray = providers.map((provider, i) => (
+
       <tr key={i}>
         <td>{provider.name}</td>
         <td>{provider.totalUsers}</td>
-        <td>{provider.totalLikes}</td>
-        <td>{provider.totalShares}</td>
-        <td>{provider.lastActiveDate}</td>
       </tr>
     ));
     return mapArray;
   }
-  render() {
 
+  totalMap() {
+    const providers = this.getProviders();
+    {
+      const totals = providers.map((provider, i) => (
+        <div key={i}>
+          Total Likes: {provider.totalLikes}<br/>
+          Total Shares: {provider.totalShares}<br/>
+          Last Activity Date: {provider.lastActiveDate}<br/>
+        </div>
+      ));
+      return totals;
+    }
+  }
+
+  render() {
     return (
       <header>
         <table>
@@ -107,15 +116,13 @@ class Brand extends Component {
           <tr>
             <th>Media Channel</th>
             <th><strong>Users</strong></th>
-            <th><strong>Likes</strong></th>
-            <th><strong>Shares</strong></th>
-            <th>Last Active Date</th>
           </tr>
           </thead>
           <tbody>
           {this.getItemMap()}
           </tbody>
         </table>
+        {this.totalMap()}
       </header>
     )
   }
