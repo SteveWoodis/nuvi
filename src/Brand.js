@@ -97,7 +97,8 @@ class Brand extends Component {
   totalMap() {
     const providers = this.getProviders();
     {
-      const totals = providers.map((provider, i) => (
+      const i = 1;
+      const totals = providers.map((provider) => (
         <div key={i}>
           Total Likes: {provider.totalLikes}<br/>
           Total Shares: {provider.totalShares}<br/>

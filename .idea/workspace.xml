@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e0919bd-28d3-44ea-b938-a79910a9c96d" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Brand.js" afterPath="$PROJECT_DIR$/src/Brand.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Users.js" afterPath="$PROJECT_DIR$/src/Users.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Brand.test.js" afterPath="$PROJECT_DIR$/src/Brand.test.js" />
     </list>
     <ignored path="nuvi.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,7 +39,7 @@
       <file leaf-file-name="Users.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Users.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
+            <state relative-caret-position="519">
               <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
               <folding />
             </state>
@@ -48,8 +49,8 @@
       <file leaf-file-name="Brand.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Brand.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="108" column="3" lean-forward="true" selection-start-line="108" selection-start-column="3" selection-end-line="108" selection-end-column="3" />
+            <state relative-caret-position="370">
+              <caret line="101" column="21" lean-forward="true" selection-start-line="101" selection-start-column="21" selection-end-line="101" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -70,8 +71,8 @@
       <file leaf-file-name="Brand.test.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Brand.test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="89">
-              <caret line="10" column="3" lean-forward="true" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+            <state relative-caret-position="464">
+              <caret line="37" column="71" lean-forward="false" selection-start-line="37" selection-start-column="71" selection-end-line="37" selection-end-column="71" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -108,8 +109,8 @@
         <option value="$PROJECT_DIR$/src/users.js" />
         <option value="$PROJECT_DIR$/src/App.test.js" />
         <option value="$PROJECT_DIR$/src/brand.js" />
-        <option value="$PROJECT_DIR$/src/Brand.test.js" />
         <option value="$PROJECT_DIR$/src/Users.js" />
+        <option value="$PROJECT_DIR$/src/Brand.test.js" />
         <option value="$PROJECT_DIR$/src/Brand.js" />
       </list>
     </option>
@@ -298,12 +299,12 @@
       <workItem from="1490837433639" duration="20425000" />
       <workItem from="1490887814859" duration="13200000" />
       <workItem from="1491235838709" duration="11097000" />
-      <workItem from="1492484911505" duration="30109000" />
+      <workItem from="1492484911505" duration="33475000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="118947000" />
+    <option name="totallyTimeSpent" value="122313000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -578,28 +579,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Users.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="519">
+          <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Brand.test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="10" column="3" lean-forward="true" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+        <state relative-caret-position="464">
+          <caret line="37" column="71" lean-forward="false" selection-start-line="37" selection-start-column="71" selection-end-line="37" selection-end-column="71" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Users.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Brand.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="108" column="3" lean-forward="true" selection-start-line="108" selection-start-column="3" selection-end-line="108" selection-end-column="3" />
+        <state relative-caret-position="370">
+          <caret line="101" column="21" lean-forward="true" selection-start-line="101" selection-start-column="21" selection-end-line="101" selection-end-column="21" />
           <folding />
         </state>
       </provider>

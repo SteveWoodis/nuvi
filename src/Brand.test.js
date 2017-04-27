@@ -33,4 +33,6 @@ it('should return total number of shares', () => {
 it('should return table with values at top of page', () => {
   const brand = new Brand();
   const users = [{}]
-})
+});
+//getProviders
+it('should return the name of the provider to pass along with the array')
