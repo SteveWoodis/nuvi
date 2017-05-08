@@ -32,7 +32,18 @@ it('should return total number of shares', () => {
 //getItemMap
 it('should return table with values at top of page', () => {
   const brand = new Brand();
-  const users = [{}]
+  const users = [{name: 'spot', totalUsers: 1}];
+  const finalMap = brand.getItemMap(name, totalUsers);
+  if(finalMap != 1){
+    throw Error('incorrect number of elements in Array');
+  }
 });
 //getProviders
+// This doesn't work as I am trying to rewrite the code.
 it('should return the name of the provider to pass along with the array')
+const brand = new Brand();
+const users = [{provider:'test1'},{provider:'test2'},{provider:'test3'}];
+const provArray = brand.getProviders();
+if(provArray === ''){
+  throw Error('You have an empty Array.');
+}

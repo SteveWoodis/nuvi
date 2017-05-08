@@ -31,7 +31,7 @@ class Brand extends Component {
     return filteredUser.length;
   }
 
-  getTotalLikes(users, name) {
+  getTotalLikes(users) {
     let totalLikes = 0;
     const filteredLikes = users.reduce(function (totalLikes, user) {
       return totalLikes += user.activity_likes;
@@ -39,7 +39,7 @@ class Brand extends Component {
     return filteredLikes;
   }
 
-  getTotalShares(users, name) {
+  getTotalShares(users) {
     let totalShares = 0;
     const filteredShares = users.reduce(function (totalShares, user) {
       return totalShares += user.activity_shares;
@@ -70,12 +70,27 @@ class Brand extends Component {
   }
 
   getProviders() {
-    return [
-      this.getNewProvider(this.state.users, 'facebook'),
-      this.getNewProvider(this.state.users, 'twitter'),
-      this.getNewProvider(this.state.users, 'instagram'),
-      this.getNewProvider(this.state.users, 'tumblr')
-    ];
+    const users = this.state.users;
+    const providersList = users.reduce(function (acc, user) {
+       if (acc.includes(user)) {
+        acc.totalUsers++;
+        console.log('True. totalUsers',acc.totalUsers);
+        if (user.activity_date > acc.lastActivityDate) {
+          acc.lastActivityDate = user.activity_date;
+        }
+      } else {
+        console.log('False. made it to else.');
+        acc.push(
+          {
+            name: user.provider,
+            totalUsers: 1,
+            lastActiveDate: user.activity_date
+          })
+      }
+      return acc;
+    }, []);
+    console.log('providersList Array', providersList);
+    return providersList;
   }
 
   componentWillMount() {
